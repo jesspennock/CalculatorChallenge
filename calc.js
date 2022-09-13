@@ -6,24 +6,24 @@ const reader = readline.createInterface({
   output: process.stdout,
 });
 
-
-
 reader.question("What would you like to calculate?", function(input){
 	const tokens = input.split(' ');
-	
+
 	const mathSymbol = tokens[0]; // doesn't need to be surrounded with ""
 	const num1 = Number(tokens[1]);
 	const num2 = Number(tokens[2]);
+	const num3 = Number(tokens[3]);
 
 	console.log ('mathSymbol', mathSymbol)
 	console.log ('num1', num1);
 	console.log('num2', num2);
+	console.log('num3', num3);
 
 	if(mathSymbol === "+"){
-		console.log(num1 + num2);
+		console.log(num1 + num2 + num3);
 	}
 	if(mathSymbol === "-")	{
-		console.log(num1 - num2)
+		console.log(num1 - num2 - num3);
 	}
 	if(mathSymbol === "*"){
 		console.log(num1 * num2);
@@ -34,8 +34,15 @@ reader.question("What would you like to calculate?", function(input){
 	if(mathSymbol === "sqrt") {
 		console.log(Math.sqrt(num1));
 	}
-
+	if(mathSymbol === "**") {
+		console.log(num1 * num1);
+	}
+	if(mathSymbol === "***") {
+		console.log(num1 * num1 * num1);
+	}
+	if(mathSymbol === "%") {
+		console.log(num1 % num2);
+	}
 	// This line closes the connection to the command line interface.
-	reader.close()
-
+	reader.close();
 });
